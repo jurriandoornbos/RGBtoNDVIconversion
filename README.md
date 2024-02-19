@@ -25,7 +25,7 @@
 * [Features](#features)
   * [1. Training set creation](#1-training-set-creation)
   * [2. Testing set creation](#2-testing-set-creation)
-  * [3. Pix2Pix training](#3-pix2pix-training)
+  * [3. Pix2Pix (HD) training](#3-pix2pixhd-training)
   * [4. Generating NDVI](#4-generating-ndvi)
   * [5. Reconstructing orthomosaic](#5-reconstructing-orthomosaic)
   * [6. Preprocessing evaluation datasets](#6-preprocessing-evaluation-datasets)
@@ -62,40 +62,40 @@ Required data inputs:
 ### 1. Training set creation
 As we are dealing with 2 models: Pix2Pix and Pix2PixHD, requires the training dataset to be made twice, from the same orthomosaic, once at 256x256 resolution, and once at 512x512 resolution.
 
-This is performed in the notebook: `1_training_set_creation.ipynb`
+This is performed in the notebook: [`1_training_set_creation.ipynb`](notebooks/1_training_set_creation.ipynb)
 It also structures these datasets accordingly in training/evaluation/testing splits.
 
 ### 2. Testing set creation
 Additionally, the Pix2Pix models require chips of the correct size, this means that the testing sets (_btg2022_ and _can2023_) also need to be processed to that end.
 
-This is performed in the notebooks: `2_testing_set_creation.ipynb` It also structures these chips accordingly for Pix2Pix to read the files correctly.
+This is performed in the notebooks: [`2_testing_set_creation.ipynb`](notebooks/2_testing_set_creation.ipynb) It also structures these chips accordingly for Pix2Pix to read the files correctly.
 
 ### 3. Pix2Pix(HD) training
 For Pix2Pix: taken almost directly from the pytorch [CycleGAN and Pix2Pix](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix) repository. For training the models.
 For Pix2PixHD, it is adjusted to the [NVIDIA Pix2PixHD](https://github.com/NVIDIA/pix2pixHD) repository. Which essentially runs the same training code and data structure.
 
-This is also covered in the training notebook: `3_p2p_training.ipynb`. Which requires a slightly different environment: this is covered in the notebook.
+This is also covered in the training notebook: [`3_p2p_training.ipynb`](notebooks/3_p2p_training.ipynb). Which requires a slightly different environment: this is covered in the notebook.
 
 ### 4. Generating NDVI
 Generating the NDVI is performed on the test datasets, using the model weights from the training process. Found under the respecitve Pix2Pix and Pix2PixHD `model_weights` folder.
-This is covered in notebook: `4_generating_ndvi.ipynb`.
+This is also covered in notebook: [`3_p2p_training.ipynb`](notebooks/3_generating_ndvi.ipynb).
 
-Download the model-weights: [Pix2Pix](p2p.pt), [Pix2PixHD](https://p2p_hd.pt)
+* Download the model-weights: [Pix2Pix](https://e.pcloud.link/publink/show?code=kZyTwWZGhaoeY4npaV2Nqv4xSPQl5Ljww57), [Pix2PixHD](https://e.pcloud.link/publink/show?code=kZvGjnZABud1a0x8bXFy0XMV9KbppJTbivX)
 
 ### 5. Reconstructing orthomosaic
-The generated NDVI chips should be reconstructed and aligned back into its original shape in the orthomosaic. This is covered in notebook: `5_reconstructing_ortho.ipynb`. 
+The generated NDVI chips should be reconstructed and aligned back into its original shape in the orthomosaic. This is covered in notebook: [`5_reconstructing_ortho.ipynb`](notebooks/5_reconstructing_ortho.ipynb). 
 
 ### 6. Preprocessing evaluation datasets
-The various evaluations require some additional datasets, consisting of alignment, setting NULL values, writing them into a single folder in `data/preprocessed/`. This is covered in notebook: `6_preprocessing_eval.ipynb`.
+The various evaluations require some additional datasets, consisting of alignment, setting NULL values, writing them into a single folder in `data/preprocessed/`. This is covered in notebook: [`6_preprocessing_eval.ipynb`](notebooks/6_preprocessing_eval.ipynb).
 
 ### 7. Pixel-level evaluation 
-The first evaluation is at the pixel-level. Flattening the orthomosaics and checkig for absolute accuracy, as well as noise and structural similarity between true and generated NDVI. This is covered in notebook: `7_pixel_level_eval.ipynb` 
+The first evaluation is at the pixel-level. Flattening the orthomosaics and checkig for absolute accuracy, as well as noise and structural similarity between true and generated NDVI. This is covered in notebook: [`7_pixel_level_eval.ipynb`](notebooks/7_pixel_level_eval.ipynb) 
 
 ### 8. BBR evaluation
-Using the implementation of botrytis-bunch-rot mapping algorithm from [Ariza et al. (2023)](https://github.com/mararizasentis/bbr). The NDVI maps are compared in mapping out botrytis risk in the vineyard. This is covered in ntebook: `8_bbr_eval.ipynb`.
+Using the implementation of botrytis-bunch-rot mapping algorithm from [Ariza et al. (2023)](https://github.com/mararizasentis/bbr). The NDVI maps are compared in mapping out botrytis risk in the vineyard. This is covered in notebook: [`8_bbr_eval.ipynb`](notebooks/8a_bbr_eval.ipynb).
 
 ### 9. Vigor evaluation
-The final step is evaluating the generated NDVI maps in a vigor-mapping application from [Matese et al. 2018](https://www.mdpi.com/2077-0472/8/7/116). This is covered in notebook: `9_vigor_eval.ipynb`.
+The final step is evaluating the generated NDVI maps in a vigor-mapping application from [Matese et al. 2018](https://www.mdpi.com/2077-0472/8/7/116). This is covered in notebook: [`9_vigor_eval.ipynb`](notebooks/9_vigor_eval.ipynb).
 
 ## Installation:
 
