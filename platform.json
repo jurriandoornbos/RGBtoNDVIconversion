@@ -1,0 +1,32 @@
+{
+  "title":"RGBtoNDVIconversion",
+  "creator": "Jurrian Doornbos",
+  "date": "17/3/2024",
+  "icon":"https://github.com/ICAERUS-EU/uavgeo/blob/main/docs/images/ndvi_ico.jpg?raw=true",
+  "url": "https://github.com/jurriandoornbos/RGBtoNDVIconversion",
+  "icaerus_applications": ["crop-monitoring","drone-spraying","forestry-and-biodiversity"],
+  "uses_cases":[1],
+  "extra":{
+      "usage/description": "Using Deep Learning to convert RGB to NDVI images in vineyard orthomosaics."
+  },
+  "filters":{
+      "content": [
+          "Vegetation Index",
+          "Orthomosaic processing toolbox"
+          ],  
+      "data-type": [
+          "Multispectral images",
+          "Orthomosaic"
+      ], 
+
+      "subject": [
+          "Vineyards",
+          "Drone spraying",
+          "Forestry"
+      ],
+
+      "location": [
+          "Global"
+          ]
+        }
+    }
