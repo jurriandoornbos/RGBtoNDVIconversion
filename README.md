@@ -41,13 +41,13 @@ Evaluating GAN results could be viewed through an application-perspective, where
 
 Furthermore, the generalization of the Pix2Pix model is also explored, by evaluating on different datasets to the training dataset. A different location: Canyelles in 2023, and in a different year: Bodegas Terras Gauda 2022, as well as different RGB sensors. The model is trained on a multispectral composite of Red, Green and Blue bands, whilst Canyelles 2023 and Bodegas Terras Gauda 2022 have true RGB sensors.
 
-This repository supports the work in: [Assessing Generative Deep Learning of RGB→NDVI in Vineyards on UAV Imagery Through Real Applications](https://doi.org/ID). Presenting all the steps in the evaluation approach of the generated NDVI maps through Jupyter Notebook implementations.
+This repository supports the work in: [Evaluating Generalization of Methods for Artificially Generating NDVI from UAV RGB Imagery in Vineyards](https://www.mdpi.com/2072-4292/17/3/512). Presenting all the steps in the evaluation approach of the generated NDVI maps through Jupyter Notebook implementations.
 
 <img src="imgs/GA_RGB_NDVI.png" height="500" />
 
 ## Features
 
-There are 9 distinct steps to the study: creating datasets, training the GAN (Pix2Pix), generating new NDVI maps from RGB, reconstructing this back into the orthomosaic, preprocessing the datasets for further evaluation,  and then the three evaluations: pixel, botrytis bunch rot and vigor mapping. These can all be found under the `notebooks` folder. All the data ([from Zenodo](https://zenodo.org/icaerus-he/rgb-to-ndvi-conversion)), should be placed in the  `data` folder.
+There are 9 distinct steps to the study: creating datasets, training the GAN (Pix2Pix), generating new NDVI maps from RGB, reconstructing this back into the orthomosaic, preprocessing the datasets for further evaluation,  and then the three evaluations: pixel, botrytis bunch rot and vigor mapping. These can all be found under the `notebooks` folder. All the data ([from Zenodo](https://zenodo.org/records/15051398)), should be placed in the  `data` folder.
 
 Required data inputs:
 - _btg2021_ multispectral orthomosaic
